@@ -1,0 +1,57 @@
+// login.module.scss
+:root {
+  --body-bg-color: #d3d0dd;
+  --body-color: #000000;
+  --primary-color: #23007a; // Adjust the color code according to your preference
+  --secondary-color: rgb(
+    0,
+    53,
+    122
+  ); // Adjust the color code according to your preference
+  --primary-color-dark: color-mix(in srgb, var(--primary-color), black 20%);
+  --primary-color-light: color-mix(in srgb, var(--primary-color), white 20%);
+  --border-width: 1px; // Adjust the default border width
+  --border-style: solid; // Adjust the default border style
+  --border-color: #ccc; // Adjust the default border color
+  --border-focus-color: var(--primary-color); // Border color on focus
+  --input-bg-color: #e8e8e8;
+  --input-color: #000000;
+}
+
+.container {
+  @apply flex items-center justify-center p-6 h-screen;
+  background-color: var(--body-bg-color);
+  color: var(--body-color);
+}
+
+.card {
+  @apply flex items-center justify-center flex-col gap-4 p-8 rounded-md shadow-md;
+  background-color: white;
+}
+.card:hover {
+  @apply transition duration-300 ease-in-out shadow-lg;
+}
+.title {
+  @apply font-semibold mb-6 text-center;
+}
+
+.button {
+  @apply text-white  rounded-md cursor-pointer h-10 min-w-[100px] transition duration-300 ease-in-out font-semibold;
+  background-color: var(--secondary-color);
+  border: 0px;
+}
+
+.button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.buttonOutline {
+  @apply rounded-md cursor-pointer h-10 min-w-[100px] transition duration-300 ease-in-out font-semibold;
+  background-color: white;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.buttonOutline:hover {
+  border: 2px solid var(--secondary-color);
+}

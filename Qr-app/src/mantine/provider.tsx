@@ -1,0 +1,27 @@
+import {
+  MantineProvider as Provider,
+  MantineThemeOverride,
+} from "@mantine/core";
+import './globals.css'
+import { Notifications } from "@mantine/notifications";
+
+import { theme as baseTheme } from "./theme";
+
+import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
+import { ModalsProvider } from "@mantine/modals";
+
+export default function MantineProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const theme: Partial<MantineThemeOverride> = baseTheme;
+
+  return (
+    <Provider theme={theme}>
+      <Notifications />
+      <ModalsProvider>{children}</ModalsProvider>
+    </Provider>
+  );
+}

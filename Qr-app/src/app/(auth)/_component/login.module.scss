@@ -1,0 +1,99 @@
+// login.module.scss
+:root {
+  --body-bg-color: #d3d0dd;
+  --body-color: #000000;
+  --primary-color: #23007a; // Adjust the color code according to your preference
+  --secondary-color: rgb(
+    0,
+    53,
+    122
+  ); // Adjust the color code according to your preference
+  --primary-color-dark: color-mix(in srgb, var(--primary-color), black 20%);
+  --primary-color-light: color-mix(in srgb, var(--primary-color), white 20%);
+  --border-width: 1px; // Adjust the default border width
+  --border-style: solid; // Adjust the default border style
+  --border-color: #ccc; // Adjust the default border color
+  --border-focus-color: var(--primary-color); // Border color on focus
+  --input-bg-color: #e8e8e8;
+  --input-color: #000000;
+}
+
+
+.container {
+  @apply flex items-center justify-center h-screen;
+  background-color: var(--body-bg-color);
+  color: var(--body-color);
+}
+
+.form {
+  @apply p-10 rounded-lg shadow-lg max-w-md w-full;
+  background-color: white;
+}
+
+.title {
+  @apply text-3xl font-semibold mb-6 text-center;
+}
+
+.inputGroup {
+  @apply mb-6;
+}
+
+.label {
+  @apply block text-sm font-semibold;
+  color: var(--input-color);
+}
+
+.input {
+  @apply w-full px-4 py-2 rounded-md focus:outline-none transition duration-300 ease-in-out;
+  background-color: var(--input-bg-color);
+  border: var(--border-width) var(--border-style) var(--border-color);
+  color: var(--input-color);
+
+  &:focus {
+    border-color: var(--border-focus-color);
+  }
+}
+
+.checkboxGroup {
+  @apply flex items-center mb-4;
+}
+
+.checkbox {
+  @apply h-5 w-5 mr-2 rounded-md  focus:outline-none;
+  border: var(--border-width) var(--border-style) var(--border-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+
+}
+
+.checkbox:checked {
+  accent-color: var(--primary-color);
+  width: fit-content;
+  height: auto;
+}
+.checkbox:checked:after {
+  content: '✔' !important;
+
+}
+.select {
+  @apply w-full px-4 py-2 rounded-md focus:outline-none transition duration-300 ease-in-out;
+  background-color: var(--input-bg-color);
+  border: var(--border-width) var(--border-style) var(--border-color);
+  color: var(--input-color);
+
+  &:focus {
+    border-color: var(--border-focus-color);
+  }
+}
+
+.button {
+  @apply text-white px-6 py-1 rounded-md cursor-pointer w-full transition duration-300 ease-in-out;
+  background-color: var(--secondary-color);
+  border: 0px;
+}
+
+.button:hover {
+  background-color: var(--primary-color-dark);
+}

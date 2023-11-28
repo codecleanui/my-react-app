@@ -1,0 +1,17 @@
+
+.root {
+    @apply w-full flex flex-col gap-4 justify-between border rounded-sm ;
+    min-height: 70vh;
+}
+.headerFields {
+    @apply border-b p-4;
+
+}
+.formFields {
+    @apply p-4;
+
+}
+.footerFields {
+    @apply border-t p-4 gap-4 w-full flex-col;
+
+}

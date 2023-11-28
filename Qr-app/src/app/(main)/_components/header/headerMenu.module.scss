@@ -1,0 +1,5 @@
+.header {
+  @apply flex items-center justify-between px-6;
+  border-bottom: 1px solid var(--mantine-color-default-border);
+  min-height: 50px;
+}
