@@ -1,77 +1,30 @@
-import { ConfirmPrivacyPolicy } from "../components";
+import DashboardPage from "../app/(main)/dashboard/page";
+import ShellLayout from "../app/(main)/layout";
+import NotFound from "../app/not-found";
+import QrGeneratorPage from "../app/(main)/qr-generator/page";
 import {
-  LoginPage,
-  HomePages,
-  AppShellContainer,
-  Page1,
-  Page2,
-  Page3,
-  Page4,
-} from "../pages";
-import CentralPage from "../pages/qrGenerator/sr-central";
-import NorthEastPage from "../pages/qrGenerator/sr-north-east";
-import NorthWestPage from "../pages/qrGenerator/sr-north-west";
-import SouthPage from "../pages/qrGenerator/sr-south";
-import {
-  LoaderFunctionArgs,
   createBrowserRouter,
-  redirect,
 } from "react-router-dom";
-const useProtectedRoute = (
-  deafault: LoaderFunctionArgs,
-  returnUrl: string = ""
-) => {
-  const token = localStorage.getItem("token") || null;
-  if (!token) {
-    return redirect(`/login`);
-    // return redirect(`/login?url=${returnUrl}`);
-  } else {
-    return deafault;
-  }
-};
+
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <AppShellContainer />,
+    element: <ShellLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
-        element: <HomePages />,
-        loader: (defineConfig) => useProtectedRoute(defineConfig),
+        element: <DashboardPage />,
       },
       {
-        path: "/sr-central",
-        element: <CentralPage />,
+        path: "/dashboard",
+        element: <DashboardPage />,
       },
       {
-        path: "/sr-north-east",
-        element: <NorthEastPage />,
-      },
-      {
-        path: "/sr-south",
-        element: <SouthPage />,
-      },
-      {
-        path: "/sr-north-west",
-        element: <NorthWestPage />,
+        path: "/qr-generator",
+        element: <QrGeneratorPage />,
       },
     ],
-  },
-  {
-    path: "/login",
-    element: (
-      <ConfirmPrivacyPolicy
-        children={<LoginPage />}
-        canRender={!localStorage.getItem("acceptPolicy")}
-      />
-    ),
-    loader: () => {
-      const token = localStorage.getItem("token") || null;
-      if (token) {
-        return redirect("/");
-      }
-      return {};
-    },
   },
 ]);
 

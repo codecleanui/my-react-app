@@ -1,0 +1,14 @@
+.header {
+  @apply overflow-hidden ;
+}
+.headerTitle {
+  @apply p-4 overflow-hidden;
+}
+
+.body {
+  @apply px-4 py-5 sm:p-6 min-h-[100px] w-full;
+}
+
+.footer {
+    @apply px-4 py-4 sm:px-6 w-full;
+}

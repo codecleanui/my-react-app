@@ -1,0 +1,12 @@
+.root {
+  @apply w-full flex flex-col;
+}
+.headerFields {
+  @apply gap-4 justify-between;
+}
+.formFields {
+  @apply p-4;
+}
+.footerFields {
+  @apply gap-4 w-full flex-col;
+}
